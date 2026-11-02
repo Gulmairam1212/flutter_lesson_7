@@ -77,6 +77,11 @@ final emailController = TextEditingController();
                       builder: (context) => ResultPage(
                         name: nameController.text, 
                         surname: surnameController.text,
+                        phone: phoneController.text ,
+                      email:emailController.text,
+                      login: loginController.text,
+                      passoword: passowordController.text,
+
                         ),
                       ),
                     );
@@ -178,6 +183,7 @@ final emailController = TextEditingController();
                     controller:passowordController , 
                     label: 'Пароль',
                     hint: 'Введите пароль',
+                    obscureTezt: true,
                      validator: (value){
                       if(value == null || value.isEmpty) {
                         return 'Введите пароль';
@@ -247,11 +253,19 @@ final emailController = TextEditingController();
   class ResultPage extends StatelessWidget {
     final String name;
     final String surname;
+    final String phone;
+    final String email;
+    final String login;
+    final String passoword;
 
     const ResultPage({
       super.key,
       required this.name,
       required this.surname,
+      required this.phone,
+      required this.email,
+      required this.login,
+      required this.passoword,
     });
 
   @override
@@ -264,8 +278,20 @@ final emailController = TextEditingController();
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(' Имя $name'),
-          Text('Фамилия $surname'),
+          Text(' Имя: $name'),
+          const SizedBox(height:10),
+          Text('Фамилия: $surname'),
+          const SizedBox(height:10),
+          Text('Телефон: $phone'),
+          const SizedBox(height: 10),
+          Text('Email: $email'),
+          const SizedBox(height: 10),
+          Text('Логин: $login'),
+          const SizedBox(height: 10),
+          Text('Пароль: &passoword'),
+          const SizedBox(height:10),
+
+          
         ],
       ) ,
       ),
